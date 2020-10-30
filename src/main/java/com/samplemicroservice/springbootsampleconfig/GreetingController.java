@@ -7,11 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GreetingController {
 
-    @Value("${my.greeting}")
+    @Value("${my.greeting: Default Value}")
     private String greetingMessage;
 
+    @Value("Some Static Message")
+    private String staticMessage;
+
     @GetMapping("/greeting")
-    public String greeting(){
+    public String greeting() {
         return greetingMessage;
     }
 }
